@@ -1,5 +1,5 @@
-const express = require("express");
 const fs = require("fs");
+const express = require("express");
 const router = express.Router();
 router.get("/", (req, res, next) => {
   fs.readFile("chat.txt", { encoding: "utf-8" }, (err, data) => {
@@ -17,6 +17,7 @@ router.get("/", (req, res, next) => {
   });
 });
 router.post("/", (req, res, next) => {
+  console.log(req.body);
   console.log(req.body.username);
   console.log(req.body.message);
   fs.writeFile(
